@@ -7,17 +7,6 @@ import userModel from "../models/user";
 
 const router = express.Router();
 
-// Authentication                                                [done]
-// GET list of orgs                                              [done]
-// POST certifcate                                               [done]
-// GET all certificates                                          [done]
-// POST evaluation (comments) only visible to FSC, CB, ASI       [done]
-// POST feedback visible to CoC; can be called by CoC and CB     [done]
-// GET all feedbacks visible to CoC for a certificate            [done]
-// PUT certifcate status                                         [done]
-// GET blockchain certificates
-// GET docusign URL
-
 // @route   GET api/auth
 // @desc    Get logged in user with token
 // @access  Private

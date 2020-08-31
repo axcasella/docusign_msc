@@ -1,6 +1,6 @@
 # Docusign FSC Hackathon Submission
 
-## App 3 - Greeblocks
+## Greater good category - App for the Marine Stewardship Council
 
 ## Team members:
 
@@ -12,21 +12,24 @@
 
 ## Overview
 
-Forest products are all around us — from our pencils and papers, to our furniture and flooring, and much more. We want to help the Forest Stewardship Council (FSC) and Docusign work as hard for our forests, as the forests work for us.
+The ocean's presence is all around us — from the air we breath, to the food we eat, and much more. We must bring the management of our oceans and their services digital, as they are critical to food security and human welfare.
 
-Unfortunately, the Coronavirus has made it difficult for the FSC certification body (CB) to provide a chain of custody certification for companies in the forest industry supply chain. Specifically, it has become harder for FSC to conduct onsite audits of these companies, which is crucial in the pursuit of deciding what makes an ethical forest industry. To resolve this problem, we have built a web application that enables FSC auditors to virtually audit CoC applicants and issue these certifications. In addition, we have built a blockchain microservice to keep track of certifications with an immutable ledger. Let’s bring people who love forests together and help make today’s decisions work for tomorrow’s world.
+Unfortunately, the Coronavirus has made it even more difficult for the MSC certification body (CB) to provide a chain of custody [certification](https://www.msc.org/standards-and-certification/chain-of-custody-standard)
+for companies in the marine industry supply chain. Just like it has been for the FSC, it has become harder for MSC to conduct onsite audits of these companies, which is crucial in the pursuit of deciding what makes an ethical marine industry. To resolve this problem, we have built a web application that enables MSC auditors to virtually audit CoC applicants and issue these certifications. In addition, we have built a blockchain microservice to keep track of certifications with an immutable ledger. Let’s bring people who love forests together and help make today’s decisions work for tomorrow’s world.
 
-From the forest to the end customer, our app can be used by all companies in its supply chain.
+Our application has user management, authentication, and many services built in so it can be used as a standlone product by the MSC right away.
 
-:evergreen_tree::evergreen_tree::evergreen_tree: :arrow_right: Harvesting :arrow_right: Manufacturer :arrow_right: Broker :arrow_right: Distributer :arrow_right: Printer :arrow_right: Wholesaler :arrow_right: Retailer :arrow_right: :family:
+**We have made some customizations to this app for the MSC; specifically we have updated our role based access control to support MSC role type and updated the UI's look and feel. We did not change our hosted demo app or demo video.**
 
 ## Technical architecture
+
+The app technical architecture is the same as what we submitted to the Virtual Audit category. It is easy to swap out FSC schema for MSC schema in Microsoft Dynamics. We have made sure our app can be reused by various non-profits that follow a similar certification process.
 
 ![Technical architecture diagram](src/files/TechnicalArchitecture.png)
 
 ## Frontend UI
 
-The frontend UI is built with React, Redux, and Ant Design. When a user first logs in, they enter a guided walkthrough of the certification process. Our interface supports multiple user roles (Applicant, CB, FSC, ASI). Each roles correspond to a different walkthrough experience tailored based on their permissions and needs. Data is persisted through the backend REST API server.
+The frontend UI is built with React, Redux, and Ant Design. When a user first logs in, they enter a guided walkthrough of the certification process. Our interface supports multiple user roles (Applicant, CB, MSC, ASI). Each roles correspond to a different walkthrough experience tailored based on their permissions and needs. Data is persisted through the backend REST API server.
 
 ### Authentication and Authorization
 
@@ -77,7 +80,7 @@ This is implemented using long polling which is what allows real time chat to ta
 
 Our backend server is built with Node.js and Express. We have written our server side code in Typescript for the ability to do static type checking and less error prone code.
 
-The server stores FSC data & schema, evaluations, and certificates to Microsoft Dynamics 365. Evaluations and certificates follow the required FSC schema. In addition, the server stores user info, roles, and audit comments to MongoDB Atlas.
+The server stores MSC data & schema, evaluations, and certificates to Microsoft Dynamics 365. Evaluations and certificates follow the required MSC schema. In addition, the server stores user info, roles, and audit comments to MongoDB Atlas.
 
 The server exposes the following **15 REST APIs**, consumed by our UI. The decoupling of server and UI is beneficial because we can scale up the server without impacting the UI, and the UI can be swapped out as needed.
 
@@ -106,7 +109,7 @@ POST api/evaluation/certificate/:certificateID
 Get all certificates from MS Dynamics
 GET api/certificate/
 
-Add a new evaluation for a certificate to MS Dynamics. Evaluations are only visible to FSC, ASI, and CB
+Add a new evaluation for a certificate to MS Dynamics. Evaluations are only visible to MSC, ASI, and CB
 POST api/evaluation/
 
 Get all evaluations for a certificate from MS Dynamics
@@ -121,26 +124,26 @@ GET api/certificate/:certificateID/comments
 Get Docusign access token with authorization code
 GET api/docusign/token
 
-Get embedded signing URL for FSC Trademark License Agreement
+Get embedded signing URL for MSC Trademark License Agreement
 POST api/docusign/agreement
 
-Get embedded signing URL for FSC Certificate Template
+Get embedded signing URL for MSC Certificate Template
 POST api/docusign/final_certificate
 ```
 
-We have also added an authentication middleware for role based access control of our APIs. Roles can be "CB", "FSC", "ASI", or "Applicant". The following is achieved:
+We have also added an authentication middleware for role based access control of our APIs. Roles can be "CB", "MSC", "ASI", or "Applicant". The following is achieved:
 
-- Only a CB auditor can add an evaluation comment. These evaluations are only visible to CB, FSC, and ASI.
+- Only a CB auditor can add an evaluation comment. These evaluations are only visible to CB, MSC, and ASI.
 - Only a CB auditor can issue a certificate and update a certificate.
 - Both the CB auditor and the CoC applicant can chat freely on evidences. As shown in the chat box feature of our UI.
 
-In addition, we have integrated with DocuSign's eSignature APIs. The CoC applicant is required to sign the FSC Trademark License Agreement and the CB auditor is required to sign the FSC Certificate using embedded signing ceremonies.
+In addition, we have integrated with DocuSign's eSignature APIs. The CoC applicant is required to sign the MSC Trademark License Agreement and the CB auditor is required to sign the MSC Certificate using embedded signing ceremonies.
 
 For our demo, the server is deployed to AWS.
 
 ## Blockchain microservice
 
-Simply relying on an centralized database such as Microsoft Dynamics isn't enough. We have decided to take advantage of blockchain technology and add an immutable source of truth for each certificate issued by the FSC.
+Simply relying on an centralized database such as Microsoft Dynamics isn't enough. We have decided to take advantage of blockchain technology and add an immutable source of truth for each certificate issued by the MSC.
 
 Our blockchain microservice is built on top of Hyperledger Fabric. Hyperledger Fabric is an open source private permissioned blockchain framework. The microservice's server is built with Node.js and Express. The server side code is written in Typescript. The server calls Hyperledger Fabric's Contract APIs to communicate with the blockchain network.
 
@@ -170,15 +173,9 @@ POST api/blockchain/certificates
 
 We have made it optional for the backend server to connect to the blockchain microservice. In the backend server, the config setting is the `enable_blockchain` field in `src/config/config.ts`. After the chaincode is deployed to a managed blockchain service, this option can be turned on, and the microservice's server can be started. When this is enabled, the backend server can call the `POST api/blockchain/certificates` API when updating the certificate's status to "issued" in Microsoft Dynamics. This creates a certificate in the immutable ledger.
 
-## Greater good
-
-We believe our app and architecture can be easily customized and adopted by other non-profit organizations, especially ones that contribute to the conservation and restoration of forest, land, water, and air.
-
-![Other non-profits](src/files/Non_profits.png)
-
 ## What's next for this project
 
-We are proud to have gotten this far in our spare time in 2 months. However, there are a few improvements to be made if the FSC would like to use it in production.
+We are proud to have gotten this far in our spare time in 2 months. However, there are a few improvements to be made if the MSC would like to use it in production.
 
 - On the frontend, implement a more seamless integration with google drive which allows users to drag and drop files, and directly add evaluations in the form of annotations in the file view.
 - Since there are multiple actors in this certification process, use of notifications and email alerts would help make the process more efficient.
@@ -186,9 +183,7 @@ We are proud to have gotten this far in our spare time in 2 months. However, the
 - Add additional features to the smart contract to allow more companies in the supply chain to participate.
 - Enhance authentication and restrict access to blockchain microservice APIs.
 
-Thank you Docusign and FSC for the opportunity to learn, give back, and compete in this hackathon.
-
-:deciduous_tree::deciduous_tree::deciduous_tree::deciduous_tree::deciduous_tree:
+tropical_fish:tropical_fish:tropical_fish:tropical_fish:tropical_fish:tropical_fish:
 
 ## Try it out
 

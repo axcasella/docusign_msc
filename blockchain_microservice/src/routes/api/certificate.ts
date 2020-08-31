@@ -5,7 +5,7 @@ import invoke from "../../chaincode_ops/invoke";
 
 // @route  POST api/blockchain/certificates/
 // @desc   Add a new certificate to the Blockchain ledger, sets status to "Applicant"
-// @access Private, only be done by FSC auditor
+// @access Private, only be done by MSC auditor
 router.post("/", async (req: Request, res: Response) => {
   try {
     const { certificateID, type, company, issuer, issuanceDate } = req.body;

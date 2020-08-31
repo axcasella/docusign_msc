@@ -41,7 +41,7 @@ router.get("/", async (_, res: Response) => {
 
 // @route   GET api/evaluation/certificate/:certificate_id
 // @desc    Get all evaluations for a certificate from Dynamics
-// @access  Private, only used by CB, FSC, ASI
+// @access  Private, only used by CB, MSC, ASI
 router.get(
   "/certificate/:certificate_id",
   auth,
@@ -51,13 +51,13 @@ router.get(
         req.user &&
         req.user.role !== Role.CB &&
         req.user.role !== Role.ASI &&
-        req.user.role !== Role.FSC
+        req.user.role !== Role.MSC
       ) {
         return res.status(401).json({
           errors: [
             {
               msg:
-                "Only CB, FSC, or ASI can get evlaluations for a certificate",
+                "Only CB, MSC, or ASI can get evlaluations for a certificate",
             },
           ],
         });

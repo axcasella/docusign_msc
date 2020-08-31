@@ -86,6 +86,6 @@ export const getDynamicsAccessToken = async (): Promise<string> => {
 export enum Role {
   CB = "CB",
   Applicant = "Applicant",
-  FSC = "FSC",
+  MSC = "MSC",
   ASI = "ASI",
 }
