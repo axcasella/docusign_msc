@@ -1,0 +1,648 @@
+{
+	"info": {
+		"_postman_id": "3bf981fd-e329-4639-a88b-5ee0c27ea467",
+		"name": "Docusign FSC Hackathon (AWS)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User - register user to Mongo Atlas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"asi\",\n    \"email\": \"admin@asi.org\",\n    \"name\": \"Stacy\",\n    \"password\": \"password\",\n    \"role\": \"ASI\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://docusignfscserver-env.eba-y94bqrjy.us-east-2.elasticbeanstalk.com/api/user/",
+					"protocol": "http",
+					"host": [
+						"docusignfscserver-env",
+						"eba-y94bqrjy",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User - get all users from Mongo Atlas",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWYyMzc2N2YzN2Y3YjMyMjE5YjE3NTVlIiwiZW1haWwiOiJjYkBjYi5vcmciLCJuYW1lIjoiVG9tIiwicm9sZSI6IkNCIn0sImlhdCI6MTU5Njc2NTQxNiwiZXhwIjoxNjI4MzAxNDE2fQ.aCh6bmxlx7Tqv9JN3BgXSzGQWeN3gwahO8MMGyemUiE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://docusignfscserver-env.eba-y94bqrjy.us-east-2.elasticbeanstalk.com/api/user/",
+					"protocol": "http",
+					"host": [
+						"docusignfscserver-env",
+						"eba-y94bqrjy",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login - authenticate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"cb@cb.org\",\n    \"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://docusignfscserver-env.eba-y94bqrjy.us-east-2.elasticbeanstalk.com/api/auth/",
+					"protocol": "http",
+					"host": [
+						"docusignfscserver-env",
+						"eba-y94bqrjy",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth - get logged in user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWYxZjA1MTdmOGYyOGQ4Mjc2NWU1ODA5IiwiZW1haWwiOiJjYkBjYi5vcmcifSwiaWF0IjoxNTk2MDM4NjgxLCJleHAiOjM2MDAwMTU5NjAzODY4MX0.L8g-UnTjG6aeb4uwzgrBBE903ii6LQ26RHReGIwrmtQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://docusignfscserver-env.eba-y94bqrjy.us-east-2.elasticbeanstalk.com/api/auth/",
+					"protocol": "http",
+					"host": [
+						"docusignfscserver-env",
+						"eba-y94bqrjy",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Org - get all orgs from Dynamics",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"type": "text",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://docusignfscserver-env.eba-y94bqrjy.us-east-2.elasticbeanstalk.com/api/org/",
+					"protocol": "http",
+					"host": [
+						"docusignfscserver-env",
+						"eba-y94bqrjy",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"org",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Certificate - add new certificate to Dynamics",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWYyMzc2N2YzN2Y3YjMyMjE5YjE3NTVlIiwiZW1haWwiOiJjYkBjYi5vcmciLCJuYW1lIjoiVG9tIiwicm9sZSI6IkNCIn0sImlhdCI6MTU5Njc2NTczMSwiZXhwIjoxNjI4MzAxNzMxfQ.mUu1h7kfyeUeClp6KAQPTKW5YWZ3W6LIp3fBBLnLlJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"type": "text",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ch_account_id\": \"7563950c-f3cc-ea11-a814-000d3a579ccc\",\n    \"cb_account_id\": \"7363950c-f3cc-ea11-a814-000d3a579ccc\",\n    \"number_of_group_members\": 20,\n    \"cert_name\": \"FSC Certificate 123\",\n    \"cert_number\": \"c123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://docusignfscserver-env.eba-y94bqrjy.us-east-2.elasticbeanstalk.com/api/certificate/",
+					"protocol": "http",
+					"host": [
+						"docusignfscserver-env",
+						"eba-y94bqrjy",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"certificate",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Certificate - get all certificates from Dynamics",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWYyMzc2N2YzN2Y3YjMyMjE5YjE3NTVlIiwiZW1haWwiOiJjYkBjYi5vcmciLCJuYW1lIjoiVG9tIiwicm9sZSI6IkNCIn0sImlhdCI6MTU5Njc2NTczMSwiZXhwIjoxNjI4MzAxNzMxfQ.mUu1h7kfyeUeClp6KAQPTKW5YWZ3W6LIp3fBBLnLlJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"type": "text",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://docusignfscserver-env.eba-y94bqrjy.us-east-2.elasticbeanstalk.com/api/certificate/",
+					"protocol": "http",
+					"host": [
+						"docusignfscserver-env",
+						"eba-y94bqrjy",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"certificate",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Certificate - update certificate's status to issued",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWYyMzc2N2YzN2Y3YjMyMjE5YjE3NTVlIiwiZW1haWwiOiJjYkBjYi5vcmciLCJuYW1lIjoiVG9tIiwicm9sZSI6IkNCIn0sImlhdCI6MTU5Njc2NTczMSwiZXhwIjoxNjI4MzAxNzMxfQ.mUu1h7kfyeUeClp6KAQPTKW5YWZ3W6LIp3fBBLnLlJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://docusignfscserver-env.eba-y94bqrjy.us-east-2.elasticbeanstalk.com/api/certificate/b62bf652-03d5-ea11-a813-000d3a563622/issue",
+					"protocol": "http",
+					"host": [
+						"docusignfscserver-env",
+						"eba-y94bqrjy",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"certificate",
+						"b62bf652-03d5-ea11-a813-000d3a563622",
+						"issue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Evaluation - add new evaluation to Dynamics",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWYyMzc2N2YzN2Y3YjMyMjE5YjE3NTVlIiwiZW1haWwiOiJjYkBjYi5vcmciLCJyb2xlIjoiQ0IifSwiaWF0IjoxNTk2MTU5ODAwLCJleHAiOjE2Mjc2OTU4MDB9.3lOTJ2b97JODCu-PO9eYwPy6pnKpdjvWSGqbC-NrUh4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"type": "text",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"date_from\": \"2020-07-08T04:00:00Z\",\n    \"date_to\": \"2020-08-01T04:00:00Z\",\n    \"certificate_id\": \"b62bf652-03d5-ea11-a813-000d3a563622\",\n    \"evaluation_name\": \"Evaluation 1\",\n    \"evaluation_comment\": \"This site is missing gender balance sheets\",\n    \"auditor_name\": \"Tom\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://docusignfscserver-env.eba-y94bqrjy.us-east-2.elasticbeanstalk.com/api/evaluation/",
+					"protocol": "http",
+					"host": [
+						"docusignfscserver-env",
+						"eba-y94bqrjy",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"evaluation",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Evaluation - get all evaluations for a certificate from Dynamics",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWYyMzc2N2YzN2Y3YjMyMjE5YjE3NTVlIiwiZW1haWwiOiJjYkBjYi5vcmciLCJyb2xlIjoiQ0IifSwiaWF0IjoxNTk2NDA1NzcxLCJleHAiOjE2Mjc5NDE3NzF9.VVXJsDlcX5a02zWZLG0vU2uc9WrO-yjILpJecMSkWcE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"type": "text",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://docusignfscserver-env.eba-y94bqrjy.us-east-2.elasticbeanstalk.com/api/evaluation/certificate/b62bf652-03d5-ea11-a813-000d3a563622",
+					"protocol": "http",
+					"host": [
+						"docusignfscserver-env",
+						"eba-y94bqrjy",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"evaluation",
+						"certificate",
+						"b62bf652-03d5-ea11-a813-000d3a563622"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Feedback - add a new comment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWYyMzc2N2YzN2Y3YjMyMjE5YjE3NTVlIiwiZW1haWwiOiJjYkBjYi5vcmciLCJuYW1lIjoiVG9tIiwicm9sZSI6IkNCIn0sImlhdCI6MTU5NjY3NjUyMiwiZXhwIjoxNjI4MjEyNTIyfQ.KAWXztlwsG4s1E0cnvNYlYZp97lqnvWiyAKVpiz3dd8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"type": "text",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"comment\": \"Test comment by auditor\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://docusignfscserver-env.eba-y94bqrjy.us-east-2.elasticbeanstalk.com/api/certificate/b62bf652-03d5-ea11-a813-000d3a563622/add_comment",
+					"protocol": "http",
+					"host": [
+						"docusignfscserver-env",
+						"eba-y94bqrjy",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"certificate",
+						"b62bf652-03d5-ea11-a813-000d3a563622",
+						"add_comment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Feedback - get all comments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWYyMzc2N2YzN2Y3YjMyMjE5YjE3NTVlIiwiZW1haWwiOiJjYkBjYi5vcmciLCJuYW1lIjoiVG9tIiwicm9sZSI6IkNCIn0sImlhdCI6MTU5Njc2NTczMSwiZXhwIjoxNjI4MzAxNzMxfQ.mUu1h7kfyeUeClp6KAQPTKW5YWZ3W6LIp3fBBLnLlJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"type": "text",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://docusignfscserver-env.eba-y94bqrjy.us-east-2.elasticbeanstalk.com/api/certificate/b62bf652-03d5-ea11-a813-000d3a563622/comments",
+					"protocol": "http",
+					"host": [
+						"docusignfscserver-env",
+						"eba-y94bqrjy",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"certificate",
+						"b62bf652-03d5-ea11-a813-000d3a563622",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Docusign - get OAuth code from Docusign",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://account-d.docusign.com/oauth/auth?response_type=code&scope=signature&client_id=08ecb933-13e3-45e7-aed3-090418488db8&redirect_uri=http://localhost:3000/signingComplete",
+					"protocol": "https",
+					"host": [
+						"account-d",
+						"docusign",
+						"com"
+					],
+					"path": [
+						"oauth",
+						"auth"
+					],
+					"query": [
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "scope",
+							"value": "signature"
+						},
+						{
+							"key": "client_id",
+							"value": "08ecb933-13e3-45e7-aed3-090418488db8"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:3000/signingComplete"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Docusign - get access token with code",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "code",
+						"value": "eyJ0eXAiOiJNVCIsImFsZyI6IlJTMjU2Iiwia2lkIjoiNjgxODVmZjEtNGU1MS00Y2U5LWFmMWMtNjg5ODEyMjAzMzE3In0.AQoAAAABAAYABwAAdVGf_ULYSAgAAAHY5v1C2EgCAF5W9xzuQBVIhcLeUk6qPsEVAAEAAAAYAAEAAAAFAAAADQAkAAAAMDhlY2I5MzMtMTNlMy00NWU3LWFlZDMtMDkwNDE4NDg4ZGI4IgAkAAAAMDhlY2I5MzMtMTNlMy00NWU3LWFlZDMtMDkwNDE4NDg4ZGI4NwCI_cryhwy4TL0xn5fgUA2rMACAVDTPzELYSA.V3YL3wvokQbMFEQqf_SDHXSDSvQKSCAmssDnP3KOdytG2lQWg_zggS5DC75lzTJ8RfIdVQKcEbeSYuiOfTbScq3PGuZ7zYrCfRTkGa0N2wg8Fcl8OdbAyNGR9fzofvvqW6xedAmXOi0RVeaDD5lfPAc7j9VZqKArm7L5m2Gdd-FOCfFuunei-WW54nK8u_AmGwwc6u2_X8dxeBBlm0TVvsmVzYfVXx7-PfApQQMjdZWt6RwhKC2MTEmpDhgYnKAkHgpjEF7fDRgIORdPXlSX37IIgJbmCHu9ccuzf0riJ2JMHkTWMEqR-aT9MH9EbsYUyrc0T_LrNJAbr5PqkJsr6g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://docusignfscserver-env.eba-y94bqrjy.us-east-2.elasticbeanstalk.com/api/docusign/token",
+					"protocol": "http",
+					"host": [
+						"docusignfscserver-env",
+						"eba-y94bqrjy",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"docusign",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Docusign - get signing page for FSC Trademark License Agreement",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJNVCIsImFsZyI6IlJTMjU2Iiwia2lkIjoiNjgxODVmZjEtNGU1MS00Y2U5LWFmMWMtNjg5ODEyMjAzMzE3In0.AQoAAAABAAUABwCAQUe1zULYSAgAgIFqwxBD2EgCAF5W9xzuQBVIhcLeUk6qPsEVAAEAAAAYAAEAAAAFAAAADQAkAAAAMDhlY2I5MzMtMTNlMy00NWU3LWFlZDMtMDkwNDE4NDg4ZGI4IgAkAAAAMDhlY2I5MzMtMTNlMy00NWU3LWFlZDMtMDkwNDE4NDg4ZGI4MACAVDTPzELYSDcAiP3K8ocMuEy9MZ-X4FANqw.YB7hNpi_lsgq-9xMiM8MVTklkmB2Sv4GPGnRB3HEikcnSRlwIzu0UbEX6Xqh1rEZYxkC1mftGd27yLYomDqAfDovUD8nbGMMyEAe1X8U4fd7fg3YlKim52i8ASz9NffPPWU5iLprOX4IL1ZjCgNp7ZUNiMeUnso-yzD8546IO9GuHZym5xE3bvg8uqBU9vzURVShinzyMTjdB0jsJzN_WDRvh_myzER2XFCoetHjB8YZznHvh_quPPBzSFvwjTZuU-hqxN8JER9wrUDXZFGcm19dBIBUP18SUdZGVzezGhIl-qB15K0EAFp-i3fUuYit1EsgJrb_AzGSqtUyndgB-w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"signerEmail\": \"ch@ch.org\",\n    \"signerName\": \"Applicant Company Rep\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://docusignfscserver-env.eba-y94bqrjy.us-east-2.elasticbeanstalk.com/api/docusign/agreement",
+					"protocol": "http",
+					"host": [
+						"docusignfscserver-env",
+						"eba-y94bqrjy",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"docusign",
+						"agreement"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Docusign - get signing page for FSC Certificate",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJNVCIsImFsZyI6IlJTMjU2Iiwia2lkIjoiNjgxODVmZjEtNGU1MS00Y2U5LWFmMWMtNjg5ODEyMjAzMzE3In0.AQoAAAABAAUABwCAQUe1zULYSAgAgIFqwxBD2EgCAF5W9xzuQBVIhcLeUk6qPsEVAAEAAAAYAAEAAAAFAAAADQAkAAAAMDhlY2I5MzMtMTNlMy00NWU3LWFlZDMtMDkwNDE4NDg4ZGI4IgAkAAAAMDhlY2I5MzMtMTNlMy00NWU3LWFlZDMtMDkwNDE4NDg4ZGI4MACAVDTPzELYSDcAiP3K8ocMuEy9MZ-X4FANqw.YB7hNpi_lsgq-9xMiM8MVTklkmB2Sv4GPGnRB3HEikcnSRlwIzu0UbEX6Xqh1rEZYxkC1mftGd27yLYomDqAfDovUD8nbGMMyEAe1X8U4fd7fg3YlKim52i8ASz9NffPPWU5iLprOX4IL1ZjCgNp7ZUNiMeUnso-yzD8546IO9GuHZym5xE3bvg8uqBU9vzURVShinzyMTjdB0jsJzN_WDRvh_myzER2XFCoetHjB8YZznHvh_quPPBzSFvwjTZuU-hqxN8JER9wrUDXZFGcm19dBIBUP18SUdZGVzezGhIl-qB15K0EAFp-i3fUuYit1EsgJrb_AzGSqtUyndgB-w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"signerEmail\": \"cb@cb.org\",\n    \"signerName\": \"Tom the auditor\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://docusignfscserver-env.eba-y94bqrjy.us-east-2.elasticbeanstalk.com/api/docusign/final_certificate",
+					"protocol": "http",
+					"host": [
+						"docusignfscserver-env",
+						"eba-y94bqrjy",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"api",
+						"docusign",
+						"final_certificate"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

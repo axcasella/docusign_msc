@@ -1,0 +1,14 @@
+{
+  "local": {
+    "env": "local",
+    "wallet": "wallet",
+    "admin": "admin",
+    "adminSecret": "adminpw",
+    "channelName": "mychannel",
+    "chaincodeName": "chaincode",
+    "gatewayDiscovery": {
+      "enabled": true,
+      "asLocalhost": true
+    }
+  }
+}

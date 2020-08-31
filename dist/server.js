@@ -1,0 +1,26 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const cors_1 = __importDefault(require("cors"));
+const connect_1 = __importDefault(require("./middleware/connect"));
+const user_1 = __importDefault(require("./routes/user"));
+const auth_1 = __importDefault(require("./routes/auth"));
+const org_1 = __importDefault(require("./routes/org"));
+const certificatesDynamics_1 = __importDefault(require("./routes/certificatesDynamics"));
+const evaluation_1 = __importDefault(require("./routes/evaluation"));
+const docusign_1 = __importDefault(require("./routes/docusign"));
+const app = express_1.default();
+connect_1.default();
+app.use(express_1.default.json());
+app.use(cors_1.default());
+app.use("/api/user", user_1.default);
+app.use("/api/auth", auth_1.default);
+app.use("/api/org", org_1.default);
+app.use("/api/certificate", certificatesDynamics_1.default);
+app.use("/api/evaluation", evaluation_1.default);
+app.use("/api/docusign", docusign_1.default);
+const PORT = process.env.PORT || 3332;
+app.listen(PORT, () => console.log(`App started on port ${PORT}`));

@@ -1,0 +1,39 @@
+{
+  "name": "docusign_fsc_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node ./dist/server.js",
+    "server": "nodemon ./src/server.ts"
+  },
+  "keywords": [],
+  "author": "Alex Casella",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
+    "@types/express": "^4.17.7",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/mongoose": "^5.7.32",
+    "@types/node": "^14.0.24",
+    "nodemon": "^2.0.4",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "@types/cors": "^2.8.6",
+    "@types/es6-promisify": "^6.0.0",
+    "@types/express-serve-static-core": "^4.17.9",
+    "axios": "^0.19.2",
+    "bcrypt": "^5.0.0",
+    "config": "^3.3.1",
+    "cors": "^2.8.5",
+    "docusign-esign": "^5.5.0",
+    "es6-promisify": "^6.1.1",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.25",
+    "querystring": "^0.2.0"
+  }
+}

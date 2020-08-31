@@ -1,0 +1,26 @@
+{
+  "name": "docusign_fsc_backend",
+  "version": "1.0.0",
+  "description": "Backend server & chaincode for Docusign FSC hackathon",
+  "main": "server.ts",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server"
+  },
+  "author": "Alex Casella",
+  "license": "MIT",
+  "dependencies": {
+    "config": "^3.3.1",
+    "express": "^4.17.1",
+    "fabric-ca-client": "^1.4.10",
+    "fabric-network": "^1.4.10",
+    "grpc": "^1.24.3",
+    "jsonwebtoken": "^8.5.1",
+    "log4js": "^6.3.0",
+    "mongoose": "^5.9.23"
+  },
+  "devDependencies": {
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.4"
+  }
+}

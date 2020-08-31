@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "target": "es2017",
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "module": "commonjs",
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "esModuleInterop": true
+  },
+  "include": ["./src/**/*"]
+}
