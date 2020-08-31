@@ -183,7 +183,7 @@ We are proud to have gotten this far in our spare time in 2 months. However, the
 - Add additional features to the smart contract to allow more companies in the supply chain to participate.
 - Enhance authentication and restrict access to blockchain microservice APIs.
 
-tropical_fish:tropical_fish:tropical_fish:tropical_fish:tropical_fish:tropical_fish:
+:tropical_fish::tropical_fish::tropical_fish::tropical_fish::tropical_fish::tropical_fish:
 
 ## Try it out
 
